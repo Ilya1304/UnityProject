@@ -1,0 +1,30 @@
+public class ObjectMover : MonoBehaviour
+{
+    [SerializeField] private int _health = 5;
+    [SerializeField] private int _level = 5;
+    [SerializeField] private float _speed = 5f;
+
+    private void Start()
+    {
+        IncreaseHealth();
+
+        Debug.Log("Health " + _health);
+    }
+
+    private void Update()
+    {
+        UpdatePosition();
+    }
+
+    private void IncreaseHealth()
+    {
+        _health += _level;
+    }
+
+    private void UpdatePosition()
+    {
+        Vector3 newPosition = transform.position;
+        newPosition.z += _speed * Time.deltaTime;
+        transform.position = newPosition;
+    }
+}
